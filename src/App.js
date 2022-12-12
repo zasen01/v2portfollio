@@ -1,41 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import Header from './components/Header';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import AboutMe from './pages/AboutMe';
+
 
 function App() {
-  return (
-    <Navbar bg="dark" variant="dark" expand="lg">
-      <Container className='d-flex'>
-        <Navbar.Brand className="navbar-brand d-flex align-items-center text-light" href="#home">Zasen Portfolio</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end text-light'>
+  const [currentPage, setCurrentPage] = useState('Home');
+  const renderPage = () => {
+    if (currentPage === 'Home') {
+      return <Home />;
+    }
+    if (currentPage === 'AboutMe') {
+      return <AboutMe />;
+    }
+    if (currentPage === 'Projects') {
+      return <Projects />;
+    }
+  };
 
-          <Nav
-            className='navbar navbar-dark navbar-expand-md bg-dark py-3 '
-            activeKey="/home"
-            onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-          >
-            <Nav.Item>
-              <Nav.Link href="/home">Active</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="link-1">Link</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="link-2">Link</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="disabled" disabled>
-                Disabled
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+  const handlePageChange = (page) => setCurrentPage(page);
+
+  return (
+    <>
+    <Header currentPage={currentPage} handlePageChange={handlePageChange}/> 
+    {renderPage()}
+    </>
+    
   );
 }
 

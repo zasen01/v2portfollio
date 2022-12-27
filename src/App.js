@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
+import Hero from './components/Hero'
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import AboutMe from './pages/AboutMe';
@@ -25,7 +26,17 @@ function App() {
   return (
     <>
     <Header currentPage={currentPage} handlePageChange={handlePageChange}/> 
+        <Hero></Hero>
     {renderPage()}
+
+    <main>
+      <>
+      </>
+    </main>
+
+    <footer>
+
+    </footer>
     </>
     
   );

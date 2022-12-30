@@ -1,10 +1,14 @@
 import React from "react";
 
 
-function Home(){
-    return(
+function Home() {
+    return (
         <>
-        <h1>Homepage</h1>
+            <div>
+                <div className="center">
+                    <h1>Homepage</h1>
+                </div>
+            </div>
         </>
     )
 }

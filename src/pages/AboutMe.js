@@ -1,9 +1,16 @@
 import React from "react";
-function AboutMe(){
-    return(
+import Accordion from 'react-bootstrap/Accordion';
+
+function AboutMe() {
+    return (
         <>
-        <h1>About Me</h1>
-        
+            <div>
+                <div className="center">
+                    <h1>About Me</h1>
+                    
+                </div>
+            </div>
+
         </>
     )
 }

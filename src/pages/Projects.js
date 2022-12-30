@@ -2,6 +2,7 @@ import React from "react";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs'
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import project1 from '../assets/screenshots/project1.png';
@@ -19,6 +20,8 @@ function Projects() {
             id: 1,
             title: "Project 1",
             image: project1,
+            link:"https://github.com/Plovato97/Magic-trav",
+            deployed:"https://plovato97.github.io/Magic-trav/",
             description: "My first ever group project during the bootcamp. It was all about learning how API calls work and building something utilizing different APIs."
 
         },
@@ -26,12 +29,16 @@ function Projects() {
             id: 2,
             title: "Project 2",
             image: project2,
+            link:"https://github.com/zasen01/smooth-ops",
+            deployed:"https://operation-pokedex.herokuapp.com/",
             description: "The second bootcamp project was more advanced and we had started learning more and more about the backend side of Full Stack Development. This one was a real challange"
 
         },
         {
             id: 3,
             title: "Project 3",
+            link:"https://github.com/ejackson1228/space-whY",
+            deployed:"https://salty-wave-70415.herokuapp.com/",
             image: project3,
             description: "This is an entire full stack build combining both front and back end with different technologies we learned thoughout the course."
         }
@@ -67,56 +74,58 @@ function Projects() {
 
     return (
         <>
-                <div className="center">
-                    <h1>Projects</h1>
+            <div className="center">
+                <h1>Projects</h1>
 
-                    <Tabs
-                        defaultActiveKey="Completed"
-                        className="mb-3"
-                    >
-                        <Tab eventKey="Completed" title="Completed Projects">
+                <Tabs
+                    defaultActiveKey="Completed"
+                    className="mb-3"
+                >
+                    <Tab eventKey="Completed" title="Completed Projects">
 
-                            <Row xs={1} md={2} className="g-4">
-                                {myprojects.map((project, idx) => (
+                        <Row xs={1} md={2} className="g-4">
+                            {myprojects.map((project, idx) => (
 
-                                    <Col key={project.id}>
-                                        <Card>
-                                            <Card.Img variant="top" src={project.image} alt={project.title} />
-                                            <Card.Body>
-                                                <Card.Title>{project.title}</Card.Title>
-                                                <Card.Text>
+                                <Col key={project.id}>
+                                    <Card>
+                                        <Card.Img variant="top" src={project.image} alt={project.title} />
+                                        <Card.Body>
+                                            <Card.Title>{project.title}</Card.Title>
+                                            <Card.Text>
                                                 {project.description}
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                ))}
-                            </Row>
+                                            </Card.Text>
+                                            <Button href={project.link} variant="dark">GitHub</Button> {' '}{' '}
+                                            <Button href={project.deployed}>Deployed</Button>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))}
+                        </Row>
 
-                        </Tab>
-                        <Tab eventKey="Future" title="Future Projects">
+                    </Tab>
+                    <Tab eventKey="Future" title="Future Projects">
 
-                            <Row xs={1} md={2} className="g-4">
-                                {futureProjects.map((project, idx) => (
+                        <Row xs={1} md={2} className="g-4">
+                            {futureProjects.map((project, idx) => (
 
-                                    <Col key={project.id}>
-                                        <Card>
-                                            <Card.Img variant="top" src={project.image} alt={project.title} />
-                                            <Card.Body>
-                                                <Card.Title>{project.title}</Card.Title>
-                                                <Card.Text>
-                                                   {project.description}
-                                                </Card.Text>
-                                            </Card.Body>
-                                        </Card>
-                                    </Col>
-                                ))}
-                            </Row>
+                                <Col key={project.id}>
+                                    <Card>
+                                        <Card.Img variant="top" src={project.image} alt={project.title} />
+                                        <Card.Body>
+                                            <Card.Title>{project.title}</Card.Title>
+                                            <Card.Text>
+                                                {project.description}
+                                            </Card.Text>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            ))}
+                        </Row>
 
-                        </Tab>
+                    </Tab>
 
-                    </Tabs>
-                </div>
+                </Tabs>
+            </div>
         </>
     )
 }

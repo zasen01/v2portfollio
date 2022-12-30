@@ -22,7 +22,11 @@ code {
   padding: 30px;
   text-align: center;
 }
-
+.subset {
+  text-align: left;
+  margin: auto;
+  padding: 10px;
+}
 .heroImage {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./assets/images/hero.jpeg");
   height: 25%;
